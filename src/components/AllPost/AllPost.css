@@ -1,0 +1,14 @@
+.cardBox{
+    box-shadow:  3px 3px 0px rgba(0,0,0,0.1);
+    border-radius:10px;
+
+}
+
+.postBox{
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    width: 60%;
+    margin: 10px auto;
+    box-shadow: 2px 2px 0px rgb(0 0 0 / 20%);
+}

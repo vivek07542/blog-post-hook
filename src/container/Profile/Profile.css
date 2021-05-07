@@ -1,0 +1,72 @@
+.headingColor{
+  background-color: rgb(199,238,245);
+  width:100%;
+  margin-left:8px;
+  height:70px;
+  padding-top : 11px;
+}
+.verticalTab{
+  width: 100%;
+}
+.tabDivs {
+  /* border:1px solid red; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 89vh;
+  background: #f8f9fa;
+  margin: 0 auto;
+  word-break: break-all;
+  /* border: 1px solid rgba(0, 0, 0, 0.274); */
+}
+.tabss {
+  /* padding: 15px; */
+  text-align: center;
+  width: 100%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabss:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabss {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabss::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(88, 147, 241);
+}
+
+.btn {
+  border: none;
+  height:45px;
+}
+.content-tabss {
+  flex-grow: 1;
+}
+.contents {
+  background: white;
+  /* padding: 20px; */
+  width: 98%;
+  height: 96%;
+  display: none;
+  text-align: center;
+}
+.active-contents {
+  display: block;
+}
