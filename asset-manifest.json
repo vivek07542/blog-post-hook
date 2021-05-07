@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/blog-post-hook/static/css/main.ef7519d9.chunk.css",
+    "main.js": "/blog-post-hook/static/js/main.0f6ae48a.chunk.js",
+    "main.js.map": "/blog-post-hook/static/js/main.0f6ae48a.chunk.js.map",
+    "runtime-main.js": "/blog-post-hook/static/js/runtime-main.544db3e7.js",
+    "runtime-main.js.map": "/blog-post-hook/static/js/runtime-main.544db3e7.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/blog-post-hook/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.8315625b.chunk.js": "/blog-post-hook/static/js/2.8315625b.chunk.js",
+    "static/js/2.8315625b.chunk.js.map": "/blog-post-hook/static/js/2.8315625b.chunk.js.map",
+    "static/js/3.ef0e6cef.chunk.js": "/blog-post-hook/static/js/3.ef0e6cef.chunk.js",
+    "static/js/3.ef0e6cef.chunk.js.map": "/blog-post-hook/static/js/3.ef0e6cef.chunk.js.map",
+    "index.html": "/blog-post-hook/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/blog-post-hook/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.ef7519d9.chunk.css.map": "/blog-post-hook/static/css/main.ef7519d9.chunk.css.map",
+    "static/js/2.8315625b.chunk.js.LICENSE.txt": "/blog-post-hook/static/js/2.8315625b.chunk.js.LICENSE.txt",
+    "static/media/Login.css": "/blog-post-hook/static/media/homepage-hero-4.1da202e0.webp"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.544db3e7.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.8315625b.chunk.js",
+    "static/css/main.ef7519d9.chunk.css",
+    "static/js/main.0f6ae48a.chunk.js"
+  ]
+}
