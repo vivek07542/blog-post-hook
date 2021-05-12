@@ -6,7 +6,7 @@ import * as loginAction from "../../store/redux/LoginRedux/LoginRedux";
 import {Link} from "react-router-dom";
 
 const Navbar =({match}) => {
-console.log(match);
+
   const loggedInUser = useSelector(state => state.Login.loggedInUser);
 
   const dispatch = useDispatch();
