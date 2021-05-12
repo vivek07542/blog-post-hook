@@ -19,11 +19,14 @@ export const SAVE_CREATE_USER_INIT = "SAVE_CREATE_USER_INIT";
 export const SAVE_CREATE_USER_SUCCESS = "SAVE_CREATE_USER_SUCCESS";
 
 export const initlizerAppInit = () =>{
+    ("initlizerAppInit");
     return{
         type : INITLIZE_APP
     }
 }
 export const submitHandlerInit = (values,valid) =>{  
+
+    
     return{
         type : SIGNUP_SUBMIT_INIT,
         username : values.username,
@@ -32,6 +35,8 @@ export const submitHandlerInit = (values,valid) =>{
     }
 }
 export const submitHandlerSuccess = (loginBlogApp) =>{
+
+
     return{
         type : SIGNUP_SUBMIT_SUCCESS,
         loggedInUser : loginBlogApp.loggedInUser,
@@ -81,7 +86,7 @@ export const postHandlerSuccess = (loginBlogApp) =>{
    }
 
    export const saveHandlerInit = (values) =>{  
-    console.log(values);
+
     return{
         type : SAVE_INIT,
         values : values
@@ -153,8 +158,7 @@ const initialState = {
     openProfile : false,
     openPost : true,
     usersDetail : [],
-    editObject : {},
-  
+    editObject : {},  
 }
 const Login = (state =initialState ,action) =>{
     switch(action.type){

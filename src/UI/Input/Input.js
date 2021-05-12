@@ -89,7 +89,7 @@ Input.defaultProps = {
     
 //     const this.handleChange = (event) => {
 //         const {value} = event.target;
-//         console.log(validateInput(validators));
+//         (validateInput(validators));
 //         setError(validateInput(validators,value));
 //         onChange(value,error);
 //     };

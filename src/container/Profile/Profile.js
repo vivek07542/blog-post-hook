@@ -4,9 +4,12 @@ import "../../App.css";
 import "../../components/MyProfile/MyProfile";
 import MyProfile from "../../components/MyProfile/MyProfile";
 import Users from "../../components/Users/Users";
+import {useSelector} from "react-redux";
 
-const Profile = (props) =>{
+const Profile = () =>{
   const[toggleTab,setToggleTab] = useState(1);
+
+  const loggedInUser = useSelector(state => state.Login.loggedInUser);
 
   const toggleTabClick = (index) => {
     setToggleTab(index);
@@ -27,7 +30,7 @@ const Profile = (props) =>{
             My Profile
           </button>
         </div>
-        {props.loggedInUser.role === "admin" && (
+        {loggedInUser.role === "admin" && (
           <div className="row">
             <button
               className={
@@ -56,7 +59,7 @@ const Profile = (props) =>{
             <h2 className="heading ">Logged In User Detail</h2>
             </div>
             <hr />
-            <MyProfile loggedInUser = {props.loggedInUser}/>
+            <MyProfile loggedInUser = {loggedInUser}/>
           </div>
           <div
             className={

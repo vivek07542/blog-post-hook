@@ -8,6 +8,7 @@ import {createStore,applyMiddleware,compose} from "redux";
 import rootReducer from "./store/redux/root_redux";
 import {watch} from "./store/saga/root_saga";
 import createSagaMiddleware from "redux-saga";
+import {HashRouter} from "react-router-dom";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -19,7 +20,9 @@ sagaMiddleware.run(watch);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </Provider>,
   document.getElementById('root')
 );

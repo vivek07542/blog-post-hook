@@ -23,7 +23,6 @@ export const initializePostSuccess = (userPost) =>{
 }
 
 export const postClickInit = (userPost) =>{
-    // console.log(userPost);
     return{
         type : POST_CLICK_INIT,
         userPost : userPost
@@ -37,9 +36,7 @@ export const postClickSuccess = (pendingPostArray,approvedPost,adminPost) =>{
         adminPost : adminPost
     }
 }
-
 export const shareHandlerInit = (selectedUser,selectedPost) =>{
-    console.log(selectedUser,selectedPost);
     return{
         type : SHARE_POST_INIT,
         selectedUser : selectedUser,
@@ -52,9 +49,7 @@ export const sharePostSuccess = (userPost) =>{
         userPost : userPost
     }
 }
-
 export const saveHandlerInit = (post,date) =>{
-    console.log(post,date);
     return{
         type:SAVE_POST_INIT,
         post : post,
@@ -67,7 +62,6 @@ export const saveHandlerSuccess = (userPost) =>{
         userPost : userPost
     }
 }
-
 const initialState = {
     userPost : [],
     pendingPostArray : [],

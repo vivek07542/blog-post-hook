@@ -5,12 +5,12 @@ import "../../App.css";
 import { useSelector,useDispatch } from "react-redux";
 import * as postAction from "../../store/redux/PostRedux/PostRedux";
 
-const Post = (props) =>{
+const Post = () =>{
   const[toggleTab,setToggleTab] = useState(2);
-
-
+  
   const dispatch = useDispatch();
 
+  const loggedInUser = useSelector(state => state.Login.loggedInUser);
   const userPost= useSelector(state => state.Post.userPost);
   const pendingPostArray = useSelector(state => state.Post.pendingPostArray);
   const approvedPost = useSelector(state => state.Post.approvedPost);
@@ -44,7 +44,7 @@ const Post = (props) =>{
       >
         All Post
       </button>
-      {props.loggedInUser.role === "admin" && (
+      {loggedInUser.role === "admin" && (
         <button
           className={
             toggleTab === 3 ? "tabs active-tabs" : "tabs"
@@ -66,7 +66,7 @@ const Post = (props) =>{
           <h4 className="display-3 text-center heading">Pending Post</h4>
           <hr />
           <AllPost
-            loggedInUser={props.loggedInUser}
+            loggedInUser={loggedInUser}
             approvedPost={pendingPostArray}
             tabContent = "pendingPost"
           />
@@ -82,7 +82,7 @@ const Post = (props) =>{
           <h4 className="display-3 text-center heading">All Post</h4>
           <hr />
           <AllPost
-            loggedInUser={props.loggedInUser}
+            loggedInUser={loggedInUser}
             approvedPost={approvedPost}
             tabContent = "allPost"
           />
@@ -98,7 +98,7 @@ const Post = (props) =>{
           <h4 className="display-3 text-center heading">Promotional Post</h4>
           <hr />
           <AllPost
-            loggedInUser={props.loggedInUser}
+            loggedInUser={loggedInUser}
             approvedPost={adminPost}
             tabContent = "promotionalPost"
           />

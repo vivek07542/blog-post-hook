@@ -1,9 +1,23 @@
 import React from 'react';
 import CommentIcon from "@material-ui/icons/Comment";
 import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
+import {useSelector,useDispatch} from "react-redux";
+import * as loginAction from "../../store/redux/LoginRedux/LoginRedux";
+import {Link} from "react-router-dom";
 
-const Navbar = (props) => {
-    return (
+const Navbar =({match}) => {
+console.log(match);
+  const loggedInUser = useSelector(state => state.Login.loggedInUser);
+
+  const dispatch = useDispatch();
+
+  const confirmLogoutHandler = () =>{
+    if (window.confirm("Do you want to Signout?")) {
+      dispatch(loginAction.logoutHandlerInit());
+    }
+  }
+
+  return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div
@@ -14,10 +28,9 @@ const Navbar = (props) => {
               <li className="nav-item dropdown">
                 <p
                   className="nav-link"
-                  onClick={props.postHandler}
+                  onClick={()=>dispatch(loginAction.postHandlerInit())}
                 >
-                  <CommentIcon />
-                  Posts
+                <Link className="nav-link" to ={`${match.path}`} >  <CommentIcon /> Posts</Link>
                 </p>
               </li>
             </ul>
@@ -31,7 +44,7 @@ const Navbar = (props) => {
                       data-toggle="dropdown"
                     >
                       <AccountCircleRoundedIcon />
-                      {`${props.loggedInUser.firstName} ${props.loggedInUser.lastName}`}
+                      {`${loggedInUser.firstName} ${loggedInUser.lastName}`}
                     </p>
                     <div
                       className="dropdown-menu"
@@ -40,16 +53,17 @@ const Navbar = (props) => {
                       <p
                         className="dropdown-item"
                         id="dropdownUserProfile"
-                        onClick={props.profileHandler}
+                        onClick={()=>dispatch(loginAction.profileHandlerInit())}
                       >
-                        Profile
+                        <Link className="nav-link" to ={`${match.path}/profile`} > Profile</Link>
                       </p>
                       <p
                         className="dropdown-item"
                         id="dropdownUserSignOut"
-                        onClick = {props.logoutHandler}
+                        onClick = {confirmLogoutHandler}
                       >
-                        SignOut
+                      <Link className = "nav-link" to = {`${match.path}/login`}>SignOut</Link>
+                        {/* SignOut */}
                       </p>
                     </div>
                   </li>
@@ -60,6 +74,6 @@ const Navbar = (props) => {
         </nav> 
         </div>
     )
-}
+ }
 
 export default Navbar

@@ -2,7 +2,8 @@ import * as loginAction from "../../redux/LoginRedux/LoginRedux";
 import { put } from "redux-saga/effects";
 export function* initilizeHandlerSaga(){
     const localValue =  JSON.parse(localStorage.getItem("usersDetail"));
-    localStorage.removeItem('loginBlogApp');
+    const localBlog =  JSON.parse(localStorage.getItem("loginBlogApp"));
+
     const loginBlogApp = {
         isAuth : false,
         loggedInUser : {},
@@ -12,7 +13,11 @@ export function* initilizeHandlerSaga(){
         editObject : {},
         userPost : []
     }
-
+    if(localBlog.loggedInUser !== null && localBlog.loggedInUser.username !== undefined){
+        loginBlogApp.isAuth = true
+        loginBlogApp.loggedInUser = localBlog.loggedInUser;
+    }
+    
     if (localValue === null) {
         const userArrayDetail = [];
         const userDetail = {
@@ -30,21 +35,8 @@ export function* initilizeHandlerSaga(){
     else{
         loginBlogApp.usersDetail = localValue; 
     }
+    yield put(loginAction.submitHandlerSuccess(loginBlogApp));
     yield localStorage.setItem("loginBlogApp", JSON.stringify(loginBlogApp));
-}
-export function* submitHandlerSaga(action){
-    const localValue = JSON.parse(localStorage.getItem("usersDetail"));
-    const loginBlog =  JSON.parse(localStorage.getItem("loginBlogApp"));
-    for(let users in localValue){
-        if(localValue[users].username === action.username && localValue[users].password === action.password){
-            loginBlog.isAuth = action.isAuth;
-            loginBlog.loggedInUser = localValue[users];
-            loginBlog.usersDetail = [...localValue];
-            yield localStorage.setItem("loginBlogApp", JSON.stringify(loginBlog));
-            yield put(loginAction.submitHandlerSuccess(loginBlog));
-        }
-
-    }
 }
 
 export function* logoutHandlerSaga(){
@@ -57,6 +49,20 @@ export function* logoutHandlerSaga(){
     updateValue.editObject = {};
     yield localStorage.setItem("loginBlogApp", JSON.stringify(updateValue));
     yield put(loginAction.logoutHandlerSuccess(updateValue));
+}
+
+export function* submitHandlerSaga(action){
+    const localValue = JSON.parse(localStorage.getItem("usersDetail"));
+    const loginBlog =  JSON.parse(localStorage.getItem("loginBlogApp"));
+    for(let users in localValue){
+        if(localValue[users].username === action.username && localValue[users].password === action.password){
+            loginBlog.isAuth = action.isAuth;
+            loginBlog.loggedInUser = localValue[users];
+            loginBlog.usersDetail = [...localValue];
+            yield localStorage.setItem("loginBlogApp", JSON.stringify(loginBlog));
+            yield put(loginAction.submitHandlerSuccess(loginBlog));
+        }
+    }
 }
 
 export function* profileHandlerSaga(){

@@ -8,5 +8,4 @@ const Spinner = ({loading}) => {
         </div>
     )
 }
-
 export default Spinner;
