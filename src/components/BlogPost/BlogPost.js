@@ -23,13 +23,12 @@ const PostPage = React.lazy(()=>{
         <Navbar match={match}/>
             <Switch>
             <Suspense fallback = {<Spinner loading={true}></Spinner>}>
-                <Route path={`${match.path}`} >
+                <Route exact path={`${match.path}`} >
                   <PostPage />
                 </Route>
                 <Route path={`${match.path}/profile`} >
                   <ProfilePage />
-                </Route>
-                
+                </Route>                
             </Suspense>
             </Switch>
       </div>
