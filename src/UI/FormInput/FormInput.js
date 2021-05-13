@@ -1,5 +1,4 @@
 import {useState} from "react";
-// import validation from "../../utilities/validation"
 
 const FormInput = () =>{
     const[values,setValues] = useState({
@@ -14,7 +13,6 @@ const FormInput = () =>{
             [name] : value
         })
     }
-
     return {inputHandler,values}
 }
 export default FormInput;

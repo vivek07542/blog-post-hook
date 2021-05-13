@@ -7,13 +7,14 @@ import * as loginAction from "../../store/redux/LoginRedux/LoginRedux";
   const MyProfile = () => {
     const[editMode,setEditMode] = useState(false);
     const dispatch = useDispatch();
-    const loggedInUser = useSelector(state => state.Login.loggedInUser);
+    const loggedInUser = useSelector(state => state.Login.loggedInUser);   
     const editHandler = () =>{
       setEditMode(true);
     }
     const changeModeHandler = () =>{      
       setEditMode(false);
     }
+
     return (
       <div >   
       {!editMode ? 

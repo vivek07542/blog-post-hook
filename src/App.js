@@ -6,6 +6,7 @@ import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import BlogPost from "./components/BlogPost/BlogPost";
 import { Redirect, Route, Switch } from "react-router-dom";
+import ErrorBoundary from "./components/Error/ErrorBoundary";
 
 const App = () => {
   const isAuth = useSelector((state) => state.Login.isAuth);
@@ -32,10 +33,15 @@ const App = () => {
       </Route> 
     </Switch>
   ) : (
-    <Switch>
-      <Route path="/" component={BlogPost} />
-      <Route path="/login" component={Login} />
-    </Switch>
+     <Switch>
+      <ErrorBoundary >
+        <Route  path="/" component={BlogPost} />
+      </ErrorBoundary> 
+        <Route  path="/login" component={Login} />
+        <Route path = "*">
+        <Redirect to="/" />
+      </Route> 
+     </Switch> 
   );
   return <div>{routes}</div>;
 };

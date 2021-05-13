@@ -17,7 +17,6 @@ const PostPage = React.lazy(()=>{
   })
 });
 
-
   return (
       <div>
         <Navbar match={match}/>
